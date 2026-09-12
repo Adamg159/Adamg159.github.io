@@ -1,0 +1,502 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Adam Garcia Portfolio</title>
+<meta name="description" content="Adam Garcia, simulation engineer. Hardware, XR, and embedded systems projects including a six-axis Stewart platform, a mixed reality alerting system, and a full-scale Red Bull RB16 build.">
+<meta property="og:title" content="Adam Garcia Portfolio">
+<meta property="og:image" content="img/stewart-platform.jpg">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🥽</text></svg>">
+<style>img{max-width:100%}[hidden]{display:none!important}</style>
+</head>
+<body>
+<!--
+  PLACEHOLDERS TO FILL IN (search for "TODO"):
+  - Resume: link to a PDF once the resume is finished
+-->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Chakra+Petch:wght@500;600;700&family=IBM+Plex+Sans:ital,wght@0,400;0,500;0,600;1,400&family=IBM+Plex+Mono:wght@400;500&display=swap">
+<style>
+  :root {
+    --bg: #f3f5f8;
+    --surface: #ffffff;
+    --ink: #151a22;
+    --ink-2: #4a5462;
+    --ink-3: #7c8794;
+    --line: #d9dee6;
+    --accent: #1f4fd8;
+    --accent-ink: #ffffff;
+    --accent-soft: #e4eafb;
+    --placeholder-bg: #eaeef4;
+    --placeholder-ink: #6b7684;
+    --display: "Chakra Petch", "Segoe UI", Arial, sans-serif;
+    --body: "IBM Plex Sans", "Segoe UI", Arial, sans-serif;
+    --mono: "IBM Plex Mono", Consolas, "Courier New", monospace;
+  }
+  @media (prefers-color-scheme: dark) {
+    :root:not([data-theme="light"]) {
+      --bg: #0f1319;
+      --surface: #161c25;
+      --ink: #e8ecf2;
+      --ink-2: #aeb7c3;
+      --ink-3: #7b8592;
+      --line: #28303c;
+      --accent: #7c9cf5;
+      --accent-ink: #0f1319;
+      --accent-soft: #1d2740;
+      --placeholder-bg: #1b222d;
+      --placeholder-ink: #8792a0;
+    }
+  }
+  :root[data-theme="dark"] {
+    --bg: #0f1319;
+    --surface: #161c25;
+    --ink: #e8ecf2;
+    --ink-2: #aeb7c3;
+    --ink-3: #7b8592;
+    --line: #28303c;
+    --accent: #7c9cf5;
+    --accent-ink: #0f1319;
+    --accent-soft: #1d2740;
+    --placeholder-bg: #1b222d;
+    --placeholder-ink: #8792a0;
+  }
+
+  * { box-sizing: border-box; }
+  body {
+    margin: 0;
+    background: var(--bg);
+    color: var(--ink);
+    font-family: var(--body);
+    font-size: 17px;
+    line-height: 1.6;
+  }
+  a { color: var(--accent); text-decoration-thickness: 1px; text-underline-offset: 3px; }
+  a:focus-visible, button:focus-visible { outline: 2px solid var(--accent); outline-offset: 3px; }
+  h1, h2, h3 { font-family: var(--display); line-height: 1.15; margin: 0; text-wrap: balance; }
+  p { margin: 0; max-width: 62ch; }
+
+  .shell {
+    display: grid;
+    grid-template-columns: 200px minmax(0, 760px);
+    gap: 64px;
+    max-width: 1080px;
+    margin: 0 auto;
+    padding: 48px 32px 96px;
+  }
+  nav.side {
+    position: sticky;
+    top: 48px;
+    align-self: start;
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+  }
+  nav.side .brand {
+    font-family: var(--display);
+    font-weight: 700;
+    font-size: 18px;
+    letter-spacing: 0.02em;
+    margin-bottom: 18px;
+    color: var(--ink);
+    text-decoration: none;
+  }
+  nav.side a.item {
+    font-family: var(--mono);
+    font-size: 13px;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    color: var(--ink-3);
+    text-decoration: none;
+    padding: 4px 0;
+    border-left: 2px solid transparent;
+    padding-left: 12px;
+    margin-left: -14px;
+  }
+  nav.side a.item:hover { color: var(--ink); border-left-color: var(--line); }
+
+  main { display: flex; flex-direction: column; gap: 80px; }
+  section { display: flex; flex-direction: column; gap: 24px; }
+  .eyebrow {
+    font-family: var(--mono);
+    font-size: 12px;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--accent);
+  }
+  h2 { font-size: 30px; font-weight: 600; }
+
+  /* hero */
+  .hero { display: grid; grid-template-columns: minmax(0, 1fr) 168px; gap: 40px; align-items: start; }
+  .hero h1 { font-size: 46px; font-weight: 700; letter-spacing: -0.01em; }
+  .hero .role { font-family: var(--mono); font-size: 14px; color: var(--ink-2); margin-top: 10px; }
+  .hero .lede { margin-top: 20px; font-size: 19px; color: var(--ink-2); }
+  .hero .actions { display: flex; gap: 12px; margin-top: 28px; flex-wrap: wrap; }
+  .btn {
+    display: inline-block;
+    font-family: var(--display);
+    font-weight: 600;
+    font-size: 15px;
+    letter-spacing: 0.02em;
+    padding: 10px 18px;
+    border-radius: 4px;
+    text-decoration: none;
+    border: 1px solid var(--accent);
+  }
+  .btn.primary { background: var(--accent); color: var(--accent-ink); }
+  .btn.ghost { color: var(--accent); }
+  .headshot {
+    width: 168px; height: 168px;
+    border-radius: 6px;
+    object-fit: cover;
+    display: block;
+  }
+
+  /* placeholder blocks */
+  .placeholder {
+    display: grid; place-items: center;
+    background: var(--placeholder-bg);
+    border: 1.5px dashed var(--ink-3);
+    color: var(--placeholder-ink);
+    font-family: var(--mono);
+    font-size: 12px;
+    text-align: center;
+    padding: 12px;
+    line-height: 1.4;
+  }
+
+  /* about */
+  .about-grid { display: grid; grid-template-columns: minmax(0, 1fr); gap: 24px; }
+  .skills { display: flex; flex-wrap: wrap; gap: 8px; }
+  .tag {
+    font-family: var(--mono);
+    font-size: 12.5px;
+    padding: 4px 10px;
+    border: 1px solid var(--line);
+    border-radius: 3px;
+    color: var(--ink-2);
+    background: var(--surface);
+  }
+
+  /* projects */
+  .projects { display: grid; grid-template-columns: 1fr 1fr; gap: 28px; }
+  .project {
+    background: var(--surface);
+    border: 1px solid var(--line);
+    border-radius: 6px;
+    overflow: hidden;
+    display: flex; flex-direction: column;
+  }
+  .project .thumb { aspect-ratio: 16 / 9; }
+  .project .thumb img { width: 100%; height: 100%; object-fit: cover; display: block; }
+  .project .body { padding: 20px 22px 22px; display: flex; flex-direction: column; gap: 12px; flex: 1; }
+  .project h3 { font-size: 20px; font-weight: 600; }
+  .project .meta { font-family: var(--mono); font-size: 12px; color: var(--ink-3); }
+  .project p { font-size: 15.5px; color: var(--ink-2); }
+  .project .stack { display: flex; flex-wrap: wrap; gap: 6px; margin-top: auto; padding-top: 6px; }
+  .project .stack .tag { font-size: 11.5px; padding: 3px 8px; }
+
+  /* featured project */
+  .featured {
+    background: var(--surface);
+    border: 1px solid var(--line);
+    border-radius: 6px;
+    overflow: hidden;
+    display: grid;
+    grid-template-columns: 260px minmax(0, 1fr);
+  }
+  .featured video, .featured img.lead { width: 100%; height: 100%; object-fit: cover; display: block; background: #000; }
+  .featured .body { padding: 24px 26px; display: flex; flex-direction: column; gap: 12px; }
+  .featured h3 { font-size: 24px; font-weight: 600; }
+  .featured .meta { font-family: var(--mono); font-size: 12px; color: var(--ink-3); }
+  .featured p { font-size: 15.5px; color: var(--ink-2); }
+  .featured .stack { display: flex; flex-wrap: wrap; gap: 6px; padding-top: 4px; }
+  .featured .stack .tag { font-size: 11.5px; padding: 3px 8px; }
+  .gallery {
+    grid-column: 1 / -1;
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 6px;
+    padding: 6px;
+    border-top: 1px solid var(--line);
+    background: var(--bg);
+  }
+  .gallery figure { margin: 0; display: flex; flex-direction: column; gap: 6px; }
+  .gallery img { width: 100%; aspect-ratio: 4 / 3; object-fit: cover; display: block; border-radius: 3px; }
+  .gallery figcaption { font-family: var(--mono); font-size: 11px; color: var(--ink-3); padding: 0 2px 4px; line-height: 1.35; }
+
+  /* experience */
+  .timeline { display: flex; flex-direction: column; gap: 0; border-top: 1px solid var(--line); }
+  .entry {
+    display: grid;
+    grid-template-columns: 150px minmax(0, 1fr);
+    gap: 24px;
+    padding: 24px 0;
+    border-bottom: 1px solid var(--line);
+  }
+  .entry .when { font-family: var(--mono); font-size: 13px; color: var(--ink-3); padding-top: 4px; font-variant-numeric: tabular-nums; }
+  .entry h3 { font-size: 19px; font-weight: 600; }
+  .entry .org { color: var(--ink-2); font-size: 15px; margin-top: 2px; }
+  .entry ul { margin: 12px 0 0; padding-left: 18px; color: var(--ink-2); font-size: 15.5px; display: flex; flex-direction: column; gap: 6px; }
+  .entry ul li { max-width: 62ch; }
+
+  /* contact */
+  .contact-list { display: grid; grid-template-columns: 120px minmax(0, 1fr); row-gap: 12px; column-gap: 24px; font-size: 16px; }
+  .contact-list dt { font-family: var(--mono); font-size: 12px; letter-spacing: 0.08em; text-transform: uppercase; color: var(--ink-3); padding-top: 4px; margin: 0; }
+  .contact-list dd { margin: 0; }
+  .todo { color: var(--placeholder-ink); font-family: var(--mono); font-size: 14px; }
+
+  footer { margin-top: 24px; font-family: var(--mono); font-size: 12px; color: var(--ink-3); }
+
+  @media (max-width: 860px) {
+    .shell { grid-template-columns: minmax(0, 1fr); gap: 32px; padding: 28px 20px 72px; }
+    nav.side { position: static; flex-direction: row; flex-wrap: wrap; gap: 4px 18px; align-items: baseline; }
+    nav.side .brand { margin-bottom: 0; width: 100%; }
+    nav.side a.item { border-left: 0; padding-left: 0; margin-left: 0; }
+    .hero { grid-template-columns: minmax(0, 1fr); }
+    .hero h1 { font-size: 36px; }
+    .projects { grid-template-columns: 1fr; }
+    .featured { grid-template-columns: minmax(0, 1fr); }
+    .featured video { max-height: 420px; object-fit: contain; }
+    .featured img.lead { max-height: 300px; }
+    .gallery { grid-template-columns: repeat(2, 1fr); }
+    .entry { grid-template-columns: minmax(0, 1fr); gap: 6px; }
+    .contact-list { grid-template-columns: minmax(0, 1fr); row-gap: 4px; }
+    .contact-list dd { margin-bottom: 10px; }
+  }
+  @media (prefers-reduced-motion: no-preference) {
+    html { scroll-behavior: smooth; }
+  }
+</style>
+
+<div class="shell">
+  <nav class="side" aria-label="Sections">
+    <a class="brand" href="#top">ADAM GARCIA</a>
+    <a class="item" href="#about">About</a>
+    <a class="item" href="#projects">Projects</a>
+    <a class="item" href="#experience">Experience</a>
+    <a class="item" href="#education">Education</a>
+    <a class="item" href="#contact">Contact</a>
+  </nav>
+
+  <main id="top">
+    <section class="hero" aria-label="Introduction">
+      <div>
+        <h1>Adam Garcia</h1>
+        <div class="role">Simulation Engineer · Hardware, XR &amp; Embedded Systems · Winter Park, FL</div>
+        <p class="lede">I build things that have to work in the physical world, from a six-axis motion platform I designed, machined, and programmed, to mixed-reality tools on Meta Quest 3, to carbon fiber bodywork on a full-scale Red Bull RB16. Aiming for motorsport engineering.</p>
+        <div class="actions">
+          <a class="btn primary" href="#projects">View projects</a>
+          <a class="btn ghost" href="#contact">Get in touch</a>
+        </div>
+      </div>
+      <!-- TODO: swap in a better headshot later, same 600x600 square crop -->
+      <img class="headshot" src="img/headshot.jpg" alt="Adam Garcia">
+    </section>
+
+    <section id="about">
+      <span class="eyebrow">About</span>
+      <h2>Player-driven experiences, built from the hardware up</h2>
+      <div class="about-grid">
+        <p>I'm finishing a Bachelor of Science in Simulation &amp; Visualization at Full Sail University, and I chose the program because I wanted the hardware side of computer science, not just the software. That shows in the work: a Stewart platform carried from SolidWorks through fabrication, a milled PCB, and firmware; an ESP32 sensor network feeding a Quest 3 passthrough overlay; and now composite layup on a life-size Formula 1 car under Red Bull engineers.</p>
+        <p>I tutor other students in C++ and math alongside my own coursework, which keeps me honest about explaining a system clearly rather than just making it work. I'm drawn to projects with a real user at the other end, whether that's a nurse at an IV pump or someone who needs a visual alert instead of a sound, and I like getting a complete build in front of people fast. My goal is motorsport engineering, ideally research and development in Formula 1.</p>
+        <div>
+          <span class="eyebrow">Skills</span>
+          <div class="skills" style="margin-top:10px">
+            <span class="tag">C++</span>
+            <span class="tag">Unreal Engine 5</span>
+            <span class="tag">Unity</span>
+            <span class="tag">Meta Quest 3 / VR &amp; MR</span>
+            <span class="tag">ESP32 / ESPHome</span>
+            <span class="tag">Home Assistant</span>
+            <span class="tag">MQTT</span>
+            <span class="tag">mmWave radar sensing</span>
+            <span class="tag">SolidWorks</span>
+            <span class="tag">3D printing &amp; laser cutting</span>
+            <span class="tag">PCB fabrication</span>
+            <span class="tag">Level design</span>
+            <span class="tag">GitHub / Trello</span>
+            <span class="tag">AI prompt engineering</span>
+            <span class="tag">Problem solving</span>
+            <span class="tag">Verbal communication</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="projects">
+      <span class="eyebrow">Projects</span>
+      <h2>Selected work</h2>
+
+      <article class="featured">
+        <video controls muted loop playsinline preload="metadata" poster="img/stewart-platform-poster.jpg" aria-label="Stewart platform running a scripted motion sequence">
+          <source src="img/stewart-platform-demo.mp4" type="video/mp4">
+        </video>
+        <div class="body">
+          <h3>Six-Axis Stewart Platform</h3>
+          <div class="meta">Built across four courses · Full Sail University · 2026</div>
+          <p>A servo-driven, six-degree-of-freedom motion platform carried through four consecutive courses: modeled and assembled digitally in SolidWorks first, then fabricated, wired, and programmed. Six micro servos on an ESP32 drive threaded pushrods with ball-link ends, moving a 3D-printed top plate through pitch, roll, yaw, heave, surge, and sway.</p>
+          <p>It runs in three modes: mirroring a handheld IMU in real time, playing scripted motion sequences (shown in the video), and following the player character in a Unity game so the platform moves with the gameplay.</p>
+          <p>The hardest part was fabrication tolerance. Servo pockets, standoff holes, and pin fits had to be dialed in across two processes, so I printed and laser-cut calibration plates first, measured the real clearances, and fed those numbers back into the SolidWorks models before cutting the final parts. The ESP32 sits on a custom milled copper PCB that breaks out all six servo headers.</p>
+          <div class="stack">
+            <span class="tag">ESP32</span><span class="tag">C++</span><span class="tag">Unity</span><span class="tag">SolidWorks</span><span class="tag">3D printing</span><span class="tag">Laser cutting</span><span class="tag">Custom PCB</span><span class="tag">IMU</span>
+          </div>
+        </div>
+        <div class="gallery">
+          <figure><img src="img/stewart-platform.jpg" alt="Assembled Stewart platform on a workbench"><figcaption>Assembled platform</figcaption></figure>
+          <figure><img src="img/sp-parts.jpg" alt="Pushrods, ball links, servo horns, and aluminum standoffs"><figcaption>Pushrods, ball links, servo horns, standoffs</figcaption></figure>
+          <figure><img src="img/sb-circuitboard-3.jpg" alt="Milled copper PCB with header sockets for the ESP32"><figcaption>Milled copper PCB, ESP32 headers</figcaption></figure>
+          <figure><img src="img/sb-circuitboard-2.jpg" alt="Milled copper PCB with servo header pins"><figcaption>Servo breakout headers</figcaption></figure>
+          <figure><img src="img/sp-mid-plate.jpg" alt="Laser-cut acrylic mid plate with servo cutouts"><figcaption>Laser-cut acrylic mid plate</figcaption></figure>
+          <figure><img src="img/sp-base.jpg" alt="3D-printed hexagonal base"><figcaption>3D-printed base</figcaption></figure>
+          <figure><img src="img/laser-calibration-plate.jpg" alt="Laser-cut acrylic calibration test plate"><figcaption>Laser cutter calibration plate</figcaption></figure>
+          <figure><img src="img/3d-printer-calibration-plate.jpg" alt="3D-printed calibration test plate"><figcaption>3D printer calibration plate</figcaption></figure>
+        </div>
+      </article>
+
+      <article class="featured">
+        <img class="lead" src="img/rb16-layup-wide.jpg" alt="Carbon fiber body panel laid up over a mold in the build lab">
+        <div class="body">
+          <h3>Life-Size Red Bull RB16 Formula 1 Car</h3>
+          <div class="meta">Final project · Full Sail University · Aug 2026 – Oct 2026 · In progress</div>
+          <p>Assisting in the development and fabrication of a life-sized Red Bull RB16 Formula 1 car under the direction of subject matter experts from Red Bull and Red Bull Racing. Working to the team's specifications on a full-scale build is the capstone of my program and my first look at how a motorsport engineering organization actually operates.</p>
+          <p>Progress so far centers on the composite bodywork: marking and cutting patterns, draping carbon fiber cloth over the molds, and wet-layup resin work with the weights and cure schedule dictated by the Red Bull engineers. Photos will be added as the build moves toward final assembly.</p>
+          <!-- TODO: add 1-2 sentences on your specific subsystem or role once you can share it -->
+          <div class="stack">
+            <span class="tag">Carbon fiber layup</span><span class="tag">Composites</span><span class="tag">Fabrication</span><span class="tag">SolidWorks</span><span class="tag">Motorsport</span>
+          </div>
+        </div>
+        <div class="gallery">
+          <figure><img src="img/rb16-draping-carbon.jpg" alt="Team draping carbon fiber cloth over a mold with a Red Bull subject matter expert"><figcaption>Draping carbon cloth over the mold</figcaption></figure>
+          <figure><img src="img/rb16-carbon-on-mold.jpg" alt="Carbon fiber cloth positioned on the mold"><figcaption>Cloth positioned and trimmed</figcaption></figure>
+          <figure><img src="img/rb16-resin-work.jpg" alt="Resin work in respirators"><figcaption>Resin work</figcaption></figure>
+          <figure><img src="img/rb16-weighing-resin.jpg" alt="Weighing resin on a scale beside the layup"><figcaption>Measuring resin by weight</figcaption></figure>
+          <figure><img src="img/rb16-panel-on-mold.jpg" alt="Body panel laid up on the mold"><figcaption>Panel laid up on the mold</figcaption></figure>
+          <figure><img src="img/rb16-template-cutting.jpg" alt="Cutting cardboard templates for the panels"><figcaption>Cutting panel templates</figcaption></figure>
+          <figure><img src="img/rb16-marking-template.jpg" alt="Marking out a template on the bench"><figcaption>Marking out patterns</figcaption></figure>
+          <figure><img src="img/rb16-team-panel.jpg" alt="Build team with a finished carbon fiber panel"><figcaption>Team with a finished panel</figcaption></figure>
+        </div>
+      </article>
+
+      <article class="featured">
+        <video controls muted playsinline preload="metadata" poster="img/mr-alert-poster.jpg" aria-label="Mixed reality sensor app running on Meta Quest 3 passthrough">
+          <source src="img/mr-alert-demo.mp4" type="video/mp4">
+        </video>
+        <div class="body">
+          <h3>Mixed Reality Accessibility Alerting System</h3>
+          <div class="meta">Solo project · Full Sail University · July 2026</div>
+          <p>Real-time visual alerts for deaf and hard-of-hearing users, delivered in Meta Quest 3 passthrough. A single ESP32 running ESPHome carries an LD2410 mmWave radar, a temperature and humidity sensor, and an RGB LED. Home Assistant automations bridge those entities to the headset over MQTT, and an Unreal Engine 5.6 app renders the result in mixed reality.</p>
+          <p>Widgets pin to real walls and tables using Meta scene data and persist between sessions as spatial anchors: a climate panel with a live temperature ring, toggle cards for a lamp and the LED with a full color picker, and an ambient orb that pulses and blooms when the radar detects presence. Retained MQTT messages let the headset show current state the moment it launches.</p>
+          <p>Hardware debugging was half the work. I migrated the radar module to the ESP32 for 3.3V logic, tuned per-gate sensitivity to eliminate false alerts, and traced a silent boot failure to the LED being wired at power-on. The package ships with an APK installer, the full ESPHome config, and the five automations so anyone can reproduce it.</p>
+          <div class="stack">
+            <span class="tag">Unreal Engine 5.6</span><span class="tag">Meta Quest 3</span><span class="tag">ESP32 / ESPHome</span><span class="tag">LD2410 mmWave</span><span class="tag">Home Assistant</span><span class="tag">MQTT</span><span class="tag">Spatial anchors</span>
+          </div>
+        </div>
+        <div class="gallery">
+          <figure><img src="img/mr-climate-panel.jpg" alt="Climate panel widget anchored to a real wall in passthrough"><figcaption>Climate panel anchored to the wall</figcaption></figure>
+          <figure><img src="img/mr-scene-mesh.jpg" alt="Meta scene mesh overlay showing detected room surfaces"><figcaption>Scene mesh from Space Setup</figcaption></figure>
+          <figure><img src="img/mr-sensor-board.jpg" alt="ESP32 sensor board on the bench"><figcaption>ESP32 sensor node on the bench</figcaption></figure>
+          <figure><img src="img/mr-led-picker.jpg" alt="LED card expanded into a color picker in mixed reality"><figcaption>LED card with color picker</figcaption></figure>
+        </div>
+      </article>
+
+      <div class="projects">
+
+
+
+        <article class="project">
+          <div class="thumb">
+            <video controls muted playsinline preload="metadata" poster="img/xibalba-poster.jpg" aria-label="Xibalba VR walkthrough" style="width:100%;height:100%;object-fit:cover;display:block;background:#000">
+              <source src="img/xibalba-demo.mp4" type="video/mp4">
+            </video>
+          </div>
+          <div class="body">
+            <h3>Xibalba</h3>
+            <div class="meta">Solo project · Full Sail University · June 2026</div>
+            <p>A VR adaptation of the Popol Vuh for Meta Quest 3. Players journey through the Maya underworld across three scenes, solving environmental puzzles with no explicit direction. Translated myth into embodied mechanics on a custom C++ DirectSelector architecture, and built and optimized the full Quest 3 experience in Unreal Engine 5 within one day.</p>
+            <div class="stack">
+              <span class="tag">Unreal Engine 5</span><span class="tag">C++</span><span class="tag">Meta Quest 3</span><span class="tag">VR</span>
+            </div>
+          </div>
+        </article>
+
+        <article class="project">
+          <div class="thumb"><img src="img/justintime-demo-1.jpg" alt="Live demo of JustInTime Trainer on Meta Quest 3, with the headset view mirrored on a monitor" style="object-position: 70% center"></div>
+          <div class="body">
+            <h3>JustInTime Trainer</h3>
+            <div class="meta">Team project · XR Systems Developer · Full Sail University · June 2026</div>
+            <p>A proof-of-concept AR guide for nurses operating hospital and clinic IV machines. The headset overlays step-by-step guidance on the machine and pairs it with an assistant that answers questions at the bedside, showing how just-in-time help could cut setup errors and training time.</p>
+            <p>Built in Unreal Engine for the Meta Quest 3 as the development target, with smart glasses as the intended end product. Demoed live to industry reviewers, with the headset view mirrored to the room.</p>
+            <div class="stack">
+              <span class="tag">Unreal Engine 5</span><span class="tag">Meta Quest 3</span><span class="tag">AR / MR</span><span class="tag">Healthcare</span><span class="tag">Team</span>
+            </div>
+          </div>
+        </article>
+
+
+      </div>
+    </section>
+
+    <section id="experience">
+      <span class="eyebrow">Experience</span>
+      <h2>Work history</h2>
+      <div class="timeline">
+        <div class="entry">
+          <div class="when">Jan 2026 – Present</div>
+          <div>
+            <h3>Copilot Tutor</h3>
+            <div class="org">Full Sail University · Winter Park, FL</div>
+            <ul>
+              <li>Coach students through weekly one-on-one tutoring in C++, programming fundamentals, and general-education math including linear algebra and probability.</li>
+              <li>Debug student code across course projects, guiding students through error diagnosis and problem-solving strategies rather than providing direct fixes.</li>
+              <li>Adapt explanations to individual skill levels, reinforcing fundamentals to strengthen student confidence and independence.</li>
+            </ul>
+          </div>
+        </div>
+        <div class="entry">
+          <div class="when">Jan 2024 – Mar 2025</div>
+          <div>
+            <h3>Medical Courier</h3>
+            <div class="org">Lab Logistics · Orlando, FL</div>
+            <ul>
+              <li>Transported temperature-controlled medical specimens between physician practices and laboratory facilities across 20 to 40 daily stops on time-sensitive schedules.</li>
+              <li>Maintained accurate inventory of all specimens collected per route, with full personal accountability for chain of custody from pickup to lab delivery.</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="education">
+      <span class="eyebrow">Education</span>
+      <h2>Education</h2>
+      <div class="timeline">
+        <div class="entry">
+          <div class="when">Expected Oct 2026</div>
+          <div>
+            <h3>Bachelor of Science, Simulation &amp; Visualization</h3>
+            <div class="org">Full Sail University · Winter Park, FL</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="contact">
+      <span class="eyebrow">Contact</span>
+      <h2>Let's build something</h2>
+      <p>Open to motorsport, simulation, XR, and embedded-systems roles and collaborations. The fastest way to reach me is email.</p>
+      <dl class="contact-list">
+        <dt>Email</dt><dd><a href="mailto:adam.garcia.sim@gmail.com">adam.garcia.sim@gmail.com</a></dd>
+        <dt>Phone</dt><dd><a href="tel:+14074934074">407-493-4074</a></dd>
+        <dt>LinkedIn</dt><dd><a href="https://www.linkedin.com/in/adam-garcia-333637434/">linkedin.com/in/adam-garcia-333637434</a></dd>
+        <dt>GitHub</dt><dd><a href="https://github.com/Adamg159">github.com/Adamg159</a></dd>
+        <dt>Resume</dt><dd><a href="#" class="todo">Download PDF (TODO)</a></dd>
+      </dl>
+      <footer>© 2026 Adam Garcia</footer>
+    </section>
+  </main>
+</div>
+
+</body>
+</html>
