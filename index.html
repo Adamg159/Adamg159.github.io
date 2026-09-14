@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Adam Garcia Portfolio</title>
-<meta name="description" content="Adam Garcia, simulation engineer. Hardware, XR, and embedded systems projects including a six-axis Stewart platform, a mixed reality alerting system, and a full-scale Red Bull RB16 build.">
+<meta name="description" content="Adam Garcia, simulation engineer. Hardware, XR, and embedded systems projects including a six-axis Stewart platform, a mixed reality alerting system, a hybrid RC power unit with ESP32 telemetry, and a full-scale Red Bull RB16 build.">
 <meta property="og:title" content="Adam Garcia Portfolio">
 <meta property="og:image" content="img/stewart-platform.jpg">
 <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🥽</text></svg>">
@@ -285,7 +285,7 @@
       <div>
         <h1>Adam Garcia</h1>
         <div class="role">Simulation Engineer · Hardware, XR &amp; Embedded Systems · Winter Park, FL</div>
-        <p class="lede">I build things that have to work in the physical world, from a six-axis motion platform I designed, machined, and programmed, to mixed-reality tools on Meta Quest 3, to carbon fiber bodywork on a full-scale Red Bull RB16. Aiming for motorsport engineering.</p>
+        <p class="lede">I build things that have to work in the physical world, from a six-axis motion platform I designed, machined, and programmed, to mixed-reality tools on Meta Quest 3, to a hybrid power unit with its own telemetry system, to carbon fiber bodywork on a full-scale Red Bull RB16. Aiming for motorsport engineering.</p>
         <div class="actions">
           <a class="btn primary" href="#projects">View projects</a>
           <a class="btn ghost" href="#contact">Get in touch</a>
@@ -351,6 +351,27 @@
           <figure><img src="img/sp-base.jpg" alt="3D-printed hexagonal base"><figcaption>3D-printed base</figcaption></figure>
           <figure><img src="img/laser-calibration-plate.jpg" alt="Laser-cut acrylic calibration test plate"><figcaption>Laser cutter calibration plate</figcaption></figure>
           <figure><img src="img/3d-printer-calibration-plate.jpg" alt="3D-printed calibration test plate"><figcaption>3D printer calibration plate</figcaption></figure>
+        </div>
+      </article>
+
+      <article class="featured">
+        <img class="lead" src="img/pu-bench-set.jpg" alt="Hybrid power unit bench set laid out: radio, LiPo packs, charger, brushless motor, VESC controller, ESP32 and wiring hardware">
+        <div class="body">
+          <h3>1/10-Scale Hybrid Power Unit</h3>
+          <div class="meta">Personal project · July 2026 – Present · In progress</div>
+          <p>A parallel hybrid powertrain for a 1/10-scale car, modeled on the current Formula 1 layout: a 7cc twin-cylinder four-stroke engine with a crank-mounted motor-generator in the MGU-K position, a VESC four-quadrant controller for assist and regeneration, and an ESP32 telemetry and energy management system logging RPM, temperatures, and battery current. The goal is a working demonstration of hybrid integration and embedded control, not outright speed.</p>
+          <p>The engineering so far is in the decisions. I sized the 3S traction system from motor kv, back-EMF, and burst-current analysis, then selected the motor, controller, and battery and documented the trade-offs against the rejected options. Tracing the engine's factory bill of materials showed the starter belt runs through a one-way bearing, which ruled out a belt-driven generator and pushed the MGU-K to a direct crank-nose coupling checked against packaging and hoop-stress limits.</p>
+          <p>The telemetry electronics are bench-verified: three ESP32s, IMUs, thermocouple amplifiers, Hall sensors, and SD logging all pass their arrival tests, and the traction motor, controller, and packs are on the bench. The engine itself is on backorder, so the build is sequenced around it. Every decision, problem, and fix is recorded in a public build log.</p>
+          <div class="stack">
+            <span class="tag">Hybrid powertrain</span><span class="tag">ESP32</span><span class="tag">VESC</span><span class="tag">Telemetry</span><span class="tag">Embedded C++</span><span class="tag">Energy management</span><span class="tag">3D printing</span>
+          </div>
+          <p><a href="https://github.com/Adamg159/powerunit-research" target="_blank" rel="noopener">Build log and source on GitHub</a></p>
+        </div>
+        <div class="gallery">
+          <figure><img src="img/pu-mgu-k-motor-vesc.jpg" alt="Sensored brushless motor and Flipsky Mini VESC controller"><figcaption>MGU-K motor and VESC controller</figcaption></figure>
+          <figure><img src="img/pu-esp32-bucks-fuse.jpg" alt="ESP32-S3 board, buck converters, MAXI fuse holder, and shaft coupler"><figcaption>ESP32-S3, bucks, fuse holder, coupler</figcaption></figure>
+          <figure><img src="img/pu-telemetry-electronics.jpg" alt="Telemetry electronics and soldering tools laid out on the bench"><figcaption>Telemetry electronics and soldering setup</figcaption></figure>
+          <figure><img src="img/pu-lipo-packs.jpg" alt="3S traction pack and 2S surrogate pack"><figcaption>3S traction and 2S surrogate packs</figcaption></figure>
         </div>
       </article>
 
